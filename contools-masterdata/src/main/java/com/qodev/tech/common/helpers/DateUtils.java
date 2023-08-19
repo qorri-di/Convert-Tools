@@ -3,7 +3,7 @@ package com.qodev.tech.common.helpers;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class DateUtils {
+public class DateUtils extends GenerateUtils {
 
     public static Date stringToDate(String date) throws Exception {
         Date resultDate = null;
