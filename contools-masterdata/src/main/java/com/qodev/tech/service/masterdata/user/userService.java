@@ -26,7 +26,7 @@ public class userService extends GlobalFunction {
 
     public GenRespDTO read(searchRequest req){
         GenRespDTO response = new GenRespDTO();
-        if (req == null) {
+        if (req == null || (req.getId() == null && req.getCategory() == null && req.getSearch() == null && req.getSize() == null && req.getPage() == null)) {
             return response.noDataFoundResponse("Please page and size cannot be empty");
         } else if (req.getId() == null && req.getSearch() == null && req.getCategory() == null) {
             return getAll(req);

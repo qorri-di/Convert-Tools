@@ -56,19 +56,27 @@ public class mailTempService extends GlobalFunction {
 
     public GenRespDTO read(searchRequest req){
         GenRespDTO response = new GenRespDTO();
-        if (req == null) {
+        if (req == null || (req.getId() == null && req.getCategory() == null
+                && req.getSearch() == null && req.getSize() == null && req.getPage() == null)) {
             return response.errorResponse(204,"Please page and size cannot be empty");
         } else if (req.getId() == null && req.getSearch() == null && req.getCategory() == null) {
             return getAll(req);
-        } else if (req.getId() != null) {
+        } else if ((req.getSearch() == null && req.getCategory() == null)
+                || (req.getId() != null && req.getSize() != null && req.getPage() != null)) {
             return getById(req);
-        } else if (req.getCategory() != null) {
-            if (req.getCategory().equalsIgnoreCase("all category")) {
+        } else if ((req.getId() == null && req.getSearch() == null )
+                || (req.getCategory() != null && req.getSize() != null && req.getPage() != null)) {
+            if (req.getCategory().equalsIgnoreCase("all category") || !isSymbol(req.getCategory())) {
                 req.setCategory(null);
                 return getAll(req);
             }
             return getByKategory(req);
-        }else if (req.getSearch() != null) {
+        } else if ((req.getId() == null && req.getCategory() == null)
+                || (req.getSearch() != null && req.getSize() != null && req.getPage() != null)) {
+            if (!isSymbol(req.getSearch())){
+                req.setSearch(null);
+                return getAll(req);
+            }
             return getBySearch(req);
         }
         return response.noDataFoundResponse("Data not found in search");
@@ -101,12 +109,21 @@ public class mailTempService extends GlobalFunction {
         System.out.println(String.format("[[ getById ]]-------------------- MailTempList: START --------------------"));
 
         GenRespDTO response = new GenRespDTO();
-        mailTemp tempList = mailTemp.find("mailTempId =?1",req.getId()).singleResult();
+        Optional<mailTemp> tempList = mailTemp.find("mailTempId =?1",req.getId()).singleResultOptional();
 
-        long stop = System.currentTimeMillis();
-        System.out.println(String.format("[[ getById ]]-------------------- MailTempList: RESULT [[ %s ]] --------------------",JsonObject.mapFrom(tempList).encodePrettily()));
-        System.out.println(String.format("[[ getById ]]-------------------- MailTempList: END %s ms --------------------", (stop - start)));
-        return response.successResponse(tempList,"Data successfully get by id");
+        if (tempList.isPresent()) {
+            mailTemp temp = mailTemp.find("mailTempId =?1",req.getId()).singleResult();
+
+            long stop = System.currentTimeMillis();
+            System.out.println(String.format("[[ getById ]]-------------------- MailTempList: RESULT [[ %s ]] --------------------", JsonObject.mapFrom(tempList).encodePrettily()));
+            System.out.println(String.format("[[ getById ]]-------------------- MailTempList: END %s ms --------------------", (stop - start)));
+            return response.successResponse(temp, "Data successfully get by id");
+        } else {
+            long stop = System.currentTimeMillis();
+            System.out.println(String.format("[[ getById ]]-------------------- MailTempList: ERROR [[ %s ]] --------------------",req.getId()));
+            System.out.println(String.format("[[ getById ]]-------------------- MailTempList: END %s ms --------------------", (stop - start)));
+            return response.errorResponse(204, "Data Not Found");
+        }
     }
 
     private GenRespDTO getByKategory(searchRequest req){

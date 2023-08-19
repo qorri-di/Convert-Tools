@@ -19,7 +19,7 @@ public class roleController {
 
     @POST
     @Path("/save")
-    public GenRespDTO saveController(roleRequest req) throws ParseException {
+    public GenRespDTO saveController(roleRequest req) {
         return rls.save(req);
     }
 

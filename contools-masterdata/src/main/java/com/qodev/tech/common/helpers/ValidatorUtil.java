@@ -20,6 +20,7 @@ public class ValidatorUtil extends DateUtils {
     public Pattern ALPHABET_WITH_SPACE = Pattern.compile("^[a-zA-Z ]+$");
     public Pattern ALPHANUM_WITH_SPACE = Pattern.compile("^[a-zA-Z0-9 ]+$");
     public Pattern NPWP = Pattern.compile("^[0-9]{2}(\\.)[0-9]{3}(\\.)[0-9]{3}(\\.)[0-9](\\-)[0-9]{3}(\\.)[0-9]{3}$");
+    public Pattern SYMBOLIC = Pattern.compile("[%$#@!^&*\\\\(\\\\)-_<>?/;:'\\\"\\\\\\\\|\\\\]\\\\[{},.]");
 
     public boolean matches(String str, Pattern pattern) {
         if (null == str || null == pattern) {
@@ -152,5 +153,9 @@ public class ValidatorUtil extends DateUtils {
 
     public boolean isNPWP(String str) {
         return matches(str, NPWP);
+    }
+
+    public boolean isSymbol(String str) {
+        return matches(str, SYMBOLIC);
     }
 }
