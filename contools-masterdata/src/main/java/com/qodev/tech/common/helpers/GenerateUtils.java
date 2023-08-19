@@ -13,10 +13,10 @@ public class GenerateUtils {
         return "MT:" + formattedTime;
     }
 
-    public String genUserId(){
+    public Integer genUserId(){
         LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
 
-        return currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+        return Integer.valueOf(currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
     }
 
     public String genMenuId(){

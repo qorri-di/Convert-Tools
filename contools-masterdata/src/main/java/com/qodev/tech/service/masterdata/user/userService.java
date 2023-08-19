@@ -13,7 +13,7 @@ import javax.transaction.Transactional;
 public class userService extends GlobalFunction {
 
     public GenRespDTO save(registerRequest req){
-        if ( req.getUserId() == null) {
+        if (req.getUserId() == null) {
             return create(req);
         } else {
             return update(req);

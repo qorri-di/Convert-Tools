@@ -1,11 +1,15 @@
 package com.qodev.tech.common.helpers;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.text.*;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
 
 public class DateUtils extends GenerateUtils {
 
-    public static Date stringToDate(String date) throws Exception {
+    public Date stringToDate(String date) throws Exception {
         Date resultDate = null;
         if (date != null) {
             if (!date.isEmpty()) {
@@ -15,7 +19,7 @@ public class DateUtils extends GenerateUtils {
         return resultDate;
     }
 
-    public static Date stringToTimestamp(String date) throws Exception {
+    public Date stringToTimestamp(String date) throws Exception {
         Date resultDate = null;
         if (date != null) {
             if (!date.isEmpty()) {
@@ -25,7 +29,7 @@ public class DateUtils extends GenerateUtils {
         return resultDate;
     }
 
-    public static Date periodYearMonth(String date) throws Exception {
+    public Date periodYearMonth(String date) throws Exception {
         Date resultDate = null;
         if (date != null) {
             if (!date.isEmpty()) {
@@ -35,7 +39,7 @@ public class DateUtils extends GenerateUtils {
         return resultDate;
     }
 
-    public static Date stringToTime(String date) throws Exception {
+    public Date stringToTime(String date) throws Exception {
         Date resultDate = null;
         if (date != null) {
             if (!date.isEmpty()) {
@@ -45,7 +49,7 @@ public class DateUtils extends GenerateUtils {
         return resultDate;
     }
 
-    public static String dateToString(Date date) {
+    public String dateToString(Date date) {
         String format = "";
         if (date != null) {
             SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
