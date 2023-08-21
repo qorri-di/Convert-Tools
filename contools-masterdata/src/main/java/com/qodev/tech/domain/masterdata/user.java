@@ -3,6 +3,7 @@ package com.qodev.tech.domain.masterdata;
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
@@ -38,6 +39,12 @@ public class user extends PanacheEntityBase {
 
     @Column(name = "role_user")
     private String roleUser;
+
+    @Column(name = "start_date", length = 25, nullable = false)
+    private String startDate;
+
+    @Column(name = "end_date", length = 25, nullable = false)
+    private String endDate;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -161,5 +168,21 @@ public class user extends PanacheEntityBase {
 
     public void setUpdatedBy(Integer updatedBy) {
         this.updatedBy = updatedBy;
+    }
+
+    public String getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
     }
 }
