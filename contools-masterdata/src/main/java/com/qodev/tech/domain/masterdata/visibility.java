@@ -1,25 +1,20 @@
 package com.qodev.tech.domain.masterdata;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "mst_packet")
-public class packet extends PanacheEntityBase {
+@Table(name = "mst_visibility")
+public class visibility {
     @Id
-    @Column(name = "id_packet")
-    private String packetId;
+    @Column(name = "id_visibility")
+    private String visibilityId;
 
-    @Column(name = "name_packet")
-    private String namePacket;
+    @Column(name = "name_visibility")
+    private String nameVisibility;
 
-    @Column(name = "quota_packet")
-    private Integer quotaPacket;
-
-    @Column(name = "status_packet")
-    private Integer statusPacket;
+    @Column(name = "status_visibility")
+    private Integer statusVisibility;
 
     @Column(name = "created_at")
     private Date createdAt;
@@ -33,36 +28,28 @@ public class packet extends PanacheEntityBase {
     @Column(name = "updated_by")
     private String updatedBy;
 
-    public String getPacketId() {
-        return packetId;
+    public String getVisibilityId() {
+        return visibilityId;
     }
 
-    public void setPacketId(String packetId) {
-        this.packetId = packetId;
+    public void setVisibilityId(String visibilityId) {
+        this.visibilityId = visibilityId;
     }
 
-    public String getNamePacket() {
-        return namePacket;
+    public String getNameVisibility() {
+        return nameVisibility;
     }
 
-    public void setNamePacket(String namePacket) {
-        this.namePacket = namePacket;
+    public void setNameVisibility(String nameVisibility) {
+        this.nameVisibility = nameVisibility;
     }
 
-    public Integer getQuotaPacket() {
-        return quotaPacket;
+    public Integer getStatusVisibility() {
+        return statusVisibility;
     }
 
-    public void setQuotaPacket(Integer quotaPacket) {
-        this.quotaPacket = quotaPacket;
-    }
-
-    public Integer getStatusPacket() {
-        return statusPacket;
-    }
-
-    public void setStatusPacket(Integer statusPacket) {
-        this.statusPacket = statusPacket;
+    public void setStatusVisibility(Integer statusVisibility) {
+        this.statusVisibility = statusVisibility;
     }
 
     public Date getCreatedAt() {

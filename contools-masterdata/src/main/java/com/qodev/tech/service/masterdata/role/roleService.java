@@ -39,7 +39,7 @@ public class roleService extends GlobalFunction {
             data.setRoleId(genRoleId());
             data.setNameRole(req.getNameRole());
             data.setCreatedAt(new Date());
-            data.setCreatedBy(1);
+            data.setCreatedBy("1");
             data.setStatusRole(1);
 
             data.persist();
@@ -164,7 +164,7 @@ public class roleService extends GlobalFunction {
             rol.setCreatedAt(rol.getCreatedAt());
             rol.setCreatedBy(rol.getCreatedBy());
             rol.setUpdatedAt(new Date());
-            rol.setUpdatedBy(1);
+            rol.setUpdatedBy("1");
 
             rol.persist();
 
@@ -200,7 +200,7 @@ public class roleService extends GlobalFunction {
             rol.setCreatedAt(rol.getCreatedAt());
             rol.setCreatedBy(rol.getCreatedBy());
             rol.setUpdatedAt(new Date());
-            rol.setUpdatedBy(1);
+            rol.setUpdatedBy("1");
 
             rol.persist();
 

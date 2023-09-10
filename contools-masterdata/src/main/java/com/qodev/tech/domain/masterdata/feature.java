@@ -12,12 +12,6 @@ public class feature extends PanacheEntityBase {
     @Column(name = "feature_id")
     private String featureId;
 
-    @Column(name = "created_at")
-    private Date createdAt;
-
-    @Column(name = "created_by")
-    private Integer createdBy;
-
     @Column(name = "feature_name")
     private String featureName;
 
@@ -27,11 +21,17 @@ public class feature extends PanacheEntityBase {
     @Column(name = "menu_id")
     private String menuId;
 
+    @Column(name = "created_at")
+    private Date createdAt;
+
+    @Column(name = "created_by")
+    private String createdBy;
+
     @Column(name = "updated_at")
     private Date updatedAt;
 
     @Column(name = "updated_by")
-    private Integer updatedBy;
+    private String updatedBy;
 
     public String getFeatureId() {
         return this.featureId;
@@ -39,22 +39,6 @@ public class feature extends PanacheEntityBase {
 
     public void setFeatureId(String featureId) {
         this.featureId = featureId;
-    }
-
-    public Date getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(Integer createdBy) {
-        this.createdBy = createdBy;
     }
 
     public String getFeatureName() {
@@ -81,6 +65,22 @@ public class feature extends PanacheEntityBase {
         this.menuId = menuId;
     }
 
+    public Date getCreatedAt() {
+        return this.createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedBy() {
+        return this.createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
     public Date getUpdatedAt() {
         return this.updatedAt;
     }
@@ -89,11 +89,11 @@ public class feature extends PanacheEntityBase {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getUpdatedBy() {
+    public String getUpdatedBy() {
         return this.updatedBy;
     }
 
-    public void setUpdatedBy(Integer updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
 }

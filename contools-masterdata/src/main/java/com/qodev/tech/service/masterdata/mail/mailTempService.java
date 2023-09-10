@@ -38,7 +38,7 @@ public class mailTempService extends GlobalFunction {
             data.setMailTempDomain(req.getMailTempDomain());
             data.setMailTempStatus(1);
             data.setCreatedAt(new Date());
-            data.setCreatedBy(1);
+            data.setCreatedBy("1");
 
             data.persist();
 
@@ -201,7 +201,7 @@ public class mailTempService extends GlobalFunction {
 
             tempList.setMailTempStatus(tempList.getMailTempStatus());
             tempList.setUpdatedAt(new Date());
-            tempList.setUpdatedBy(1);
+            tempList.setUpdatedBy("1");
 
             tempList.persist();
 

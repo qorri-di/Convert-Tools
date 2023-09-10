@@ -25,67 +25,27 @@ public class mailTemp extends PanacheEntityBase {
     private Date createdAt;
 
     @Column(name = "created_by")
-    private Integer createdBy;
+    private String createdBy;
     @Column(name = "updated_at")
     private Date updatedAt;
 
     @Column(name = "updated_by")
-    private Integer updatedBy;
+    private String updatedBy;
 
     public String getMailTempId() {
-        return this.mailTempId;
+        return mailTempId;
     }
 
     public void setMailTempId(String mailTempId) {
         this.mailTempId = mailTempId;
     }
 
-    public Date getCreatedAt() {
-        return this.createdAt;
-    }
-
-    public void setCreatedAt(Date createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public Integer getCreatedBy() {
-        return this.createdBy;
-    }
-
-    public void setCreatedBy(Integer createdBy) {
-        this.createdBy = createdBy;
-    }
-
     public String getMailTempName() {
-        return this.mailTempName;
+        return mailTempName;
     }
 
     public void setMailTempName(String mailTempName) {
         this.mailTempName = mailTempName;
-    }
-
-    public Integer getMailTempStatus() {
-        return this.mailTempStatus;
-    }
-
-    public void setMailTempStatus(Integer mailTempStatus) {
-        this.mailTempStatus = mailTempStatus;
-    }
-
-    public Date getUpdatedAt() {
-        return this.updatedAt;
-    }
-
-    public void setUpdatedAt(Date updatedAt) {
-        this.updatedAt = updatedAt;
-    }
-
-    public Integer getUpdatedBy() {
-        return this.updatedBy;
-    }
-
-    public void setUpdatedBy(Integer updatedBy) {
-        this.updatedBy = updatedBy;
     }
 
     public String getMailTempDomain() {
@@ -94,5 +54,45 @@ public class mailTemp extends PanacheEntityBase {
 
     public void setMailTempDomain(String mailTempDomain) {
         this.mailTempDomain = mailTempDomain;
+    }
+
+    public Integer getMailTempStatus() {
+        return mailTempStatus;
+    }
+
+    public void setMailTempStatus(Integer mailTempStatus) {
+        this.mailTempStatus = mailTempStatus;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public String getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+    public String getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(String updatedBy) {
+        this.updatedBy = updatedBy;
     }
 }

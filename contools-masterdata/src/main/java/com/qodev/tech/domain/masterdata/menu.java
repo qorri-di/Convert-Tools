@@ -22,13 +22,13 @@ public class menu extends PanacheEntityBase {
     private Date createdAt;
 
     @Column(name = "created_by")
-    private Integer createdBy;
+    private String createdBy;
 
     @Column(name = "updated_at")
     private Date updatedAt;
 
     @Column(name = "updated_by")
-    private Integer updatedBy;
+    private String updatedBy;
 
     public String getMenuId() {
         return menuId;
@@ -62,11 +62,11 @@ public class menu extends PanacheEntityBase {
         this.createdAt = createdAt;
     }
 
-    public Integer getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Integer createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -78,11 +78,11 @@ public class menu extends PanacheEntityBase {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getUpdatedBy() {
+    public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(Integer updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
 }
