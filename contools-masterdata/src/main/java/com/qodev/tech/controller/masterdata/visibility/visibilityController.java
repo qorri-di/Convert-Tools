@@ -1,8 +1,8 @@
-package com.qodev.tech.controller.masterdata.role;
+package com.qodev.tech.controller.masterdata.visibility;
 
 import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.*;
-import com.qodev.tech.service.masterdata.role.roleService;
+import com.qodev.tech.service.masterdata.visibility.visibilityService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -10,26 +10,27 @@ import javax.ws.rs.core.MediaType;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/contools/v1-api/role")
-public class roleController {
+@Path("/contools/v1-api/visibility")
+public class visibilityController {
+
     @Inject
-    roleService rls;
+    visibilityService vs;
 
     @POST
     @Path("/save")
     public GenRespDTO saveController(defaultRequest req) {
-        return rls.save(req);
+        return vs.save(req);
     }
 
     @POST
     @Path("/delete")
     public GenRespDTO deleteController(defaultRequest req){
-        return rls.delete(req);
+        return vs.delete(req);
     }
 
     @GET
     @Path("/read")
     public GenRespDTO readController(searchRequest req){
-        return rls.read(req);
+        return vs.read(req);
     }
 }
