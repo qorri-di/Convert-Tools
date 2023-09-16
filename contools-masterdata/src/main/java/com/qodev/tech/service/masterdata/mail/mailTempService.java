@@ -5,7 +5,7 @@ import com.qodev.tech.common.helpers.GlobalFunction;
 import com.qodev.tech.domain.masterdata.mailTemp;
 import com.qodev.tech.dto.request.mail.*;
 import com.qodev.tech.dto.request.searchRequest;
-import com.qodev.tech.dto.response.mail.mailTempSearchResponse;
+import com.qodev.tech.dto.response.searchResponse;
 import io.quarkus.panache.common.Sort;
 import io.vertx.core.json.JsonObject;
 
@@ -91,12 +91,12 @@ public class mailTempService extends GlobalFunction {
         int totalPage = mailTemp.find("mailTempStatus=1",Sort.ascending("mailTempId")).page(req.getPage(), req.getSize()).pageCount();
         int totalData = (int) mailTemp.find("mailTempStatus=1").count();
 
-        mailTempSearchResponse respons = new mailTempSearchResponse();
+        searchResponse respons = new searchResponse();
         respons.setSearch(tempList);
         respons.setPage(req.getPage());
         respons.setSize(req.getSize());
-        respons.setTotalPage(totalPage);
-        respons.setTotalData(totalData);
+        respons.setTotal_Page(totalPage);
+        respons.setTotal_Data(totalData);
 
         long stop = System.currentTimeMillis();
         System.out.println(String.format("[[ getAll ]]-------------------- MailTempList: RESULT [[ page %s : %s, size %s, data %s ]] --------------------",req.getPage(),totalPage,req.getSize(),totalData));
@@ -135,12 +135,12 @@ public class mailTempService extends GlobalFunction {
         int totalPage = mailTemp.find("mailTempDomain in (?1)", Sort.ascending("mailTempId"),req.getCategory()).page(req.getPage(), req.getSize()).pageCount();
         int totalData = (int) mailTemp.find("mailTempDomain in (?1)", Sort.ascending("mailTempId"),req.getCategory()).count();
 
-        mailTempSearchResponse respons = new mailTempSearchResponse();
+        searchResponse respons = new searchResponse();
         respons.setSearch(tempList);
         respons.setPage(req.getPage());
         respons.setSize(req.getSize());
-        respons.setTotalPage(totalPage);
-        respons.setTotalData(totalData);
+        respons.setTotal_Page(totalPage);
+        respons.setTotal_Data(totalData);
 
         long stop = System.currentTimeMillis();
         System.out.println(String.format("[[ getByKategory ]]-------------------- MailTempList: RESULT [[ page %s : %s, size %s, data %s ]] --------------------",req.getPage(),totalPage,req.getSize(),totalData));
@@ -157,12 +157,12 @@ public class mailTempService extends GlobalFunction {
         int totalPage = mailTemp.find("lower(mailTempName) like ?1", Sort.ascending("mailTempId"),"%"+req.getSearch().toLowerCase()+"%").page(req.getPage(),req.getSize()).pageCount();
         int totalData = (int) mailTemp.find("lower(mailTempName) like ?1", Sort.ascending("mailTempId"),"%"+req.getSearch().toLowerCase()+"%").count();
 
-        mailTempSearchResponse respons = new mailTempSearchResponse();
+        searchResponse respons = new searchResponse();
         respons.setSearch(tempList);
         respons.setPage(req.getPage());
         respons.setSize(req.getSize());
-        respons.setTotalPage(totalPage);
-        respons.setTotalData(totalData);
+        respons.setTotal_Page(totalPage);
+        respons.setTotal_Data(totalData);
 
         long stop = System.currentTimeMillis();
         System.out.println(String.format("[[ getBySearch ]]-------------------- MailTempList: RESULT [[ page %s : %s, size %s, data %s ]] --------------------",req.getPage(),totalPage,req.getSize(),totalData));

@@ -2,12 +2,10 @@ package com.qodev.tech.service.masterdata.role;
 
 import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.common.helpers.GlobalFunction;
-import com.qodev.tech.domain.masterdata.mailTemp;
 import com.qodev.tech.domain.masterdata.role;
-import com.qodev.tech.dto.request.role.roleRequest;
+import com.qodev.tech.dto.request.defaultRequest;
 import com.qodev.tech.dto.request.searchRequest;
-import com.qodev.tech.dto.response.mail.mailTempSearchResponse;
-import com.qodev.tech.dto.response.role.roleSearchResponse;
+import com.qodev.tech.dto.response.searchResponse;
 import io.quarkus.panache.common.Sort;
 import io.vertx.core.json.JsonObject;
 
@@ -19,25 +17,25 @@ import java.util.*;
 @Transactional
 public class roleService extends GlobalFunction {
 
-    public GenRespDTO save(roleRequest req){
-        if (req.getIdRole() == null) {
+    public GenRespDTO save(defaultRequest req){
+        if (req.getId() == null) {
             return create(req);
         } else {
             return update(req);
         }
     }
 
-    private GenRespDTO create(roleRequest req){
+    private GenRespDTO create(defaultRequest req){
         long start = System.currentTimeMillis();
         System.out.println(String.format("[[ create ]]-------------------- createRole: START --------------------"));
 
         GenRespDTO response = new GenRespDTO();
-        Optional<role> roleData = role.find("nameRole=?1",req.getNameRole()).firstResultOptional();
+        Optional<role> roleData = role.find("nameRole=?1",req.getName()).firstResultOptional();
         if (!roleData.isPresent()){
 
             role data = new role();
             data.setRoleId(genRoleId());
-            data.setNameRole(req.getNameRole());
+            data.setNameRole(req.getName());
             data.setCreatedAt(new Date());
             data.setCreatedBy("1");
             data.setStatusRole(1);
@@ -50,7 +48,7 @@ public class roleService extends GlobalFunction {
             return response.successResponse("Role data saved successfully");
         } else {
             long stop = System.currentTimeMillis();
-            System.out.println(String.format("[[ create ]]-------------------- createRole: ERROR [[ %s ]] --------------------",req.getNameRole()));
+            System.out.println(String.format("[[ create ]]-------------------- createRole: ERROR [[ %s ]] --------------------",req.getName()));
             System.out.println(String.format("[[ create ]]-------------------- createRole: END %s ms --------------------", (stop - start)));
             return response.successResponse("Data already exits in database");
         }
@@ -88,12 +86,12 @@ public class roleService extends GlobalFunction {
         int totalPage = role.find("statusRole=1",Sort.ascending("roleId")).page(req.getPage(), req.getSize()).pageCount();
         int totalData = (int) role.find("statusRole=1").count();
 
-        roleSearchResponse respons = new roleSearchResponse();
+        searchResponse respons = new searchResponse();
         respons.setSearch(roleList);
         respons.setPage(req.getPage());
         respons.setSize(req.getSize());
-        respons.setTotalPage(totalPage);
-        respons.setTotalData(totalData);
+        respons.setTotal_Data(totalPage);
+        respons.setTotal_Data(totalData);
 
         long stop = System.currentTimeMillis();
         System.out.println(String.format("[[ getAll ]]-------------------- getAllRole: RESULT [[ page %s : %s, size %s, data %s ]] --------------------",req.getPage(),totalPage,req.getSize(),totalData));
@@ -132,32 +130,32 @@ public class roleService extends GlobalFunction {
         int totalPage = role.find("lower(nameRole) like ?1", Sort.ascending("roleId"),"%"+req.getSearch().toLowerCase()+"%").page(req.getPage(),req.getSize()).pageCount();
         int totalData = (int) role.find("lower(nameRole) like ?1", Sort.ascending("roleId"),"%"+req.getSearch().toLowerCase()+"%").count();
 
-        roleSearchResponse respons = new roleSearchResponse();
+        searchResponse respons = new searchResponse();
         respons.setSearch(roleList);
         respons.setPage(req.getPage());
         respons.setSize(req.getSize());
-        respons.setTotalPage(totalPage);
-        respons.setTotalData(totalData);
+        respons.setTotal_Page(totalPage);
+        respons.setTotal_Data(totalData);
 
         long stop = System.currentTimeMillis();
         System.out.println(String.format("[[ getBySearch ]]-------------------- getBySearch: RESULT [[ page %s : %s, size %s, data %s ]] --------------------",req.getPage(),totalPage,req.getSize(),totalData));
         System.out.println(String.format("[[ getBySearch ]]-------------------- getBySearch: END %s ms --------------------", (stop - start)));
         return response.successResponse(respons,"Data successfully get by search");    }
 
-    private GenRespDTO update(roleRequest req) {
+    private GenRespDTO update(defaultRequest req) {
         long start = System.currentTimeMillis();
         System.out.println(String.format("[[ update ]]-------------------- updateRole: START --------------------"));
 
         GenRespDTO response = new GenRespDTO();
-        role rol = role.findById(req.getIdRole());
+        role rol = role.findById(req.getId());
         if (rol.isPersistent()){
 
             rol.setRoleId(rol.getRoleId());
 
-            if (req.getNameRole() == null) {
+            if (req.getName() == null) {
                 rol.setNameRole(rol.getNameRole());
             } else {
-                rol.setNameRole(req.getNameRole());
+                rol.setNameRole(req.getName());
             }
 
             rol.setStatusRole(rol.getStatusRole());
@@ -181,17 +179,17 @@ public class roleService extends GlobalFunction {
         }
     }
 
-    public GenRespDTO delete(roleRequest req) {
+    public GenRespDTO delete(defaultRequest req) {
         long start = System.currentTimeMillis();
         System.out.println(String.format("[[ delete ]]-------------------- deleteRole: START --------------------"));
 
         GenRespDTO response = new GenRespDTO();
-        role rol = role.findById(req.getIdRole());
+        role rol = role.findById(req.getId());
         if (rol.isPersistent()) {
             rol.setRoleId(rol.getRoleId());
 
-            if (req.getNameRole() != null) {
-                rol.setNameRole(req.getNameRole());
+            if (req.getName() != null) {
+                rol.setNameRole(req.getName());
             } else {
                 rol.setNameRole(rol.getNameRole());
             }
@@ -205,7 +203,7 @@ public class roleService extends GlobalFunction {
             rol.persist();
 
             long stop = System.currentTimeMillis();
-            System.out.println(String.format("[[ delete ]]-------------------- deleteRole: RESULT [[ %s ]] --------------------", req.getIdRole()));
+            System.out.println(String.format("[[ delete ]]-------------------- deleteRole: RESULT [[ %s ]] --------------------", req.getId()));
             System.out.println(String.format("[[ delete ]]-------------------- deleteRole: END %s ms --------------------", (stop - start)));
             return response.successResponse("Temporary mail data deleted successfully");
         } else {
