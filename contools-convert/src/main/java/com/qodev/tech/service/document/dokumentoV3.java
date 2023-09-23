@@ -1,4 +1,4 @@
 package com.qodev.tech.service.document;
 
-public class dokumento {
+public class dokumentoV3 {
 }
