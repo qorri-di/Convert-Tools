@@ -11,7 +11,7 @@ import java.util.Date;
 public class user extends PanacheEntityBase {
     @Id
     @Column(name = "id_user")
-    private Integer userId;
+    private String userId;
 
     @Column(name = "alias_user")
     private String aliasUser;
@@ -58,11 +58,11 @@ public class user extends PanacheEntityBase {
     @Column(name = "updated_by")
     private Integer updatedBy;
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
