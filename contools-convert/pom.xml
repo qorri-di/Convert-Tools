@@ -50,6 +50,12 @@
       <groupId>io.quarkus</groupId>
       <artifactId>quarkus-smallrye-jwt</artifactId>
     </dependency>
+    <!--Cryphtograph-->
+    <dependency>
+      <groupId>org.bouncycastle</groupId>
+      <artifactId>bcpkix-jdk15on</artifactId>
+      <version>1.68</version>
+    </dependency>
     <!--kubernetes-->
     <dependency>
       <groupId>io.quarkus</groupId>
