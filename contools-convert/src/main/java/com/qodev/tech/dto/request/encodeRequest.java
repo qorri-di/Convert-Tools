@@ -2,6 +2,7 @@ package com.qodev.tech.dto.request;
 
 public class encodeRequest {
     private String categorise;
+    private String type;
     private String input;
     private String aKey;
     private String bKey;
@@ -13,6 +14,14 @@ public class encodeRequest {
 
     public void setCategorise(String categorise) {
         this.categorise = categorise;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getInput() {

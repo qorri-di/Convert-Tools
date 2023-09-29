@@ -14,7 +14,7 @@ import java.security.*;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
-@Path("/contools/v1-api/cryptography/encode")
+@Path("/contools/v1-api/cryptography")
 public class aesController {
 
     @Inject
@@ -24,6 +24,8 @@ public class aesController {
     @Path("/aes")
     public GenericResponseDTO encodeAes(encodeRequest req) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, NoSuchProviderException {
         switch (req.getCategorise()){
+            case "":
+                return new GenericResponseDTO<>().errorResponse(400,"Bad Request");
             case "aes32":
                 return aesService.aes32(req);
             case "aes64":
@@ -35,7 +37,7 @@ public class aesController {
             case "aes256":
                 return aesService.aes256(req);
             default:
-                return null;
+                return new GenericResponseDTO<>().errorResponse(400,"Bad Request");
         }
     }
 }
