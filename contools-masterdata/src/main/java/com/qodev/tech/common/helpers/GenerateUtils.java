@@ -19,10 +19,11 @@ public class GenerateUtils {
         return "MT:" + formattedTime;
     }
 
-    public Integer genUserId(){
+    public String genUserId(){
         LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
+        String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
 
-        return Integer.valueOf(currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss")));
+        return "USR:" + formattedTime;
     }
 
     public String genMenuId(){
@@ -81,6 +82,33 @@ public class GenerateUtils {
         return "FTL:" + formattedTime;
     }
 
+    public String genVisibilityId(){
+        LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
+        String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+
+        return "VSB:" + formattedTime;
+    }
+
+    public String genCryptoId(){
+        LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
+        String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+
+        return "CPT:" + formattedTime;
+    }
+
+    public String genCryptoModeId(){
+        LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
+        String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+
+        return "CMI:" + formattedTime;
+    }
+
+    public String genByteModeId(){
+        LocalDateTime currentTime = LocalDateTime.now(jakartaZone);
+        String formattedTime = currentTime.format(DateTimeFormatter.ofPattern("yyyyMMddHHmmss"));
+
+        return "BYM:" + formattedTime;
+    }
 
     public String generatedPassword(String password, String salt) throws NoSuchAlgorithmException {
         String passwordEncripted;

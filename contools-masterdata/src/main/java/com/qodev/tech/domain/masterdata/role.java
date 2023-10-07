@@ -1,8 +1,6 @@
 package com.qodev.tech.domain.masterdata;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -24,13 +22,13 @@ public class role extends PanacheEntityBase {
     private Date createdAt;
 
     @Column(name = "created_by")
-    private Integer createdBy;
+    private String createdBy;
 
     @Column(name = "updated_at")
     private Date updatedAt;
 
     @Column(name = "updated_by")
-    private Integer updatedBy;
+    private String updatedBy;
 
     public String getRoleId() {
         return roleId;
@@ -64,11 +62,11 @@ public class role extends PanacheEntityBase {
         this.createdAt = createdAt;
     }
 
-    public Integer getCreatedBy() {
+    public String getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Integer createdBy) {
+    public void setCreatedBy(String createdBy) {
         this.createdBy = createdBy;
     }
 
@@ -80,11 +78,11 @@ public class role extends PanacheEntityBase {
         this.updatedAt = updatedAt;
     }
 
-    public Integer getUpdatedBy() {
+    public String getUpdatedBy() {
         return updatedBy;
     }
 
-    public void setUpdatedBy(Integer updatedBy) {
+    public void setUpdatedBy(String updatedBy) {
         this.updatedBy = updatedBy;
     }
 }

@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
-public class userService extends GlobalFunction {
+public class  userService extends GlobalFunction {
 
     public GenRespDTO save(registerRequest req){
         if (req.getUserId() == null) {

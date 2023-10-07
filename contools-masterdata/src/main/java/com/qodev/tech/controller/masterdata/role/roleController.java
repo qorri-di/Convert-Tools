@@ -1,14 +1,12 @@
 package com.qodev.tech.controller.masterdata.role;
 
 import com.qodev.tech.common.GenRespDTO;
-import com.qodev.tech.dto.request.role.roleRequest;
-import com.qodev.tech.dto.request.searchRequest;
+import com.qodev.tech.dto.request.*;
 import com.qodev.tech.service.masterdata.role.roleService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.text.ParseException;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
@@ -19,13 +17,13 @@ public class roleController {
 
     @POST
     @Path("/save")
-    public GenRespDTO saveController(roleRequest req) {
+    public GenRespDTO saveController(defaultRequest req) {
         return rls.save(req);
     }
 
     @POST
     @Path("/delete")
-    public GenRespDTO deleteController(roleRequest req){
+    public GenRespDTO deleteController(defaultRequest req){
         return rls.delete(req);
     }
 
