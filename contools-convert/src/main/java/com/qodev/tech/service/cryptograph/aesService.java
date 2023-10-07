@@ -6,10 +6,11 @@ import com.qodev.tech.dto.response.encodeResponse;
 import io.vertx.core.json.JsonObject;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
-import javax.crypto.*;
-import javax.crypto.spec.SecretKeySpec;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
+
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 import java.security.Security;
 import java.util.Base64;
 
@@ -42,8 +43,8 @@ public class aesService {
             String key = req.getaKey() + req.getbKey() + req.getcKey();
 
             // Inisialisasi kunci rahasia
-            byte[] keyBytes = new byte[24];
-            System.arraycopy(key.getBytes(), 0, keyBytes, 0, Math.min(key.getBytes().length, 24));
+            byte[] keyBytes = new byte[32];
+            System.arraycopy(key.getBytes(), 0, keyBytes, 0, Math.min(key.getBytes().length, 32));
             SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
 
             // Buat objek Cipher
