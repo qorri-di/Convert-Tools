@@ -1,4 +1,4 @@
-package com.qodev.tech.service.transaction.trXbyte;
+package com.qodev.tech.service.masterdata.cryptograph;
 
 import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.defaultRequest;
@@ -9,21 +9,20 @@ import javax.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
-public class byteMode {
-
-    public GenRespDTO save(defaultRequest req){
-    if (req.getId() == null) {
-        return create(req);
-    } else {
-        return update(req);
+public class cryptographService {
+    public GenRespDTO save(defaultRequest req) {
+        if (req.getId() == null) {
+            return create(req);
+        } else {
+            return update(req);
+        }
     }
-}
 
     private GenRespDTO create(defaultRequest req) {
         return null;
     }
 
-    public GenRespDTO read(searchRequest req){
+    public GenRespDTO read(searchRequest req) {
         GenRespDTO response = new GenRespDTO();
         if (req == null || (req.getId() == null && req.getCategory() == null && req.getSearch() == null && req.getSize() == null && req.getPage() == null)) {
             return response.noDataFoundResponse("Please page and size cannot be empty");
@@ -37,25 +36,25 @@ public class byteMode {
                 return getAll(req);
             }
             return getByKategory(req);
-        }else if (req.getSearch() != null) {
+        } else if (req.getSearch() != null) {
             return getBySearch(req);
         }
         return response.noDataFoundResponse("Data not found in search");
     }
 
-    private GenRespDTO getAll(searchRequest req){
+    private GenRespDTO getAll(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getById(searchRequest req){
+    private GenRespDTO getById(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getByKategory(searchRequest req){
+    private GenRespDTO getByKategory(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getBySearch(searchRequest req){
+    private GenRespDTO getBySearch(searchRequest req) {
         return null;
     }
 
@@ -63,8 +62,7 @@ public class byteMode {
         return null;
     }
 
-    public GenRespDTO delete(defaultRequest req){
+    public GenRespDTO delete(defaultRequest req) {
         return null;
     }
 }
-

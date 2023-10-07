@@ -3,13 +3,13 @@ package com.qodev.tech.controller.cryptograph;
 import com.qodev.tech.common.GenericResponseDTO;
 import com.qodev.tech.dto.request.encodeRequest;
 import com.qodev.tech.service.cryptograph.aesService;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.inject.Inject;
 import java.security.*;
 
 @Consumes(MediaType.APPLICATION_JSON)

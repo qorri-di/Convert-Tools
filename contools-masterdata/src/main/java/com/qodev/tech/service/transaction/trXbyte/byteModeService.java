@@ -1,4 +1,4 @@
-package com.qodev.tech.service.transaction.cyptography;
+package com.qodev.tech.service.transaction.trXbyte;
 
 import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.defaultRequest;
@@ -9,15 +9,15 @@ import javax.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
-public class cryptoMode {
+public class byteModeService {
 
     public GenRespDTO save(defaultRequest req){
-        if (req.getId() == null) {
-            return create(req);
-        } else {
-            return update(req);
-        }
+    if (req.getId() == null) {
+        return create(req);
+    } else {
+        return update(req);
     }
+}
 
     private GenRespDTO create(defaultRequest req) {
         return null;
@@ -67,3 +67,4 @@ public class cryptoMode {
         return null;
     }
 }
+
