@@ -1,26 +1,25 @@
-package com.qodev.tech.service.masterdata.user;
+package com.qodev.tech.service.transaction.cyptography;
 
 import com.qodev.tech.common.GenRespDTO;
-import com.qodev.tech.common.helpers.GlobalFunction;
+import com.qodev.tech.dto.request.defaultRequest;
 import com.qodev.tech.dto.request.searchRequest;
-import com.qodev.tech.dto.request.user.registerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
-public class  userService extends GlobalFunction {
+public class cryptoModeService {
 
-    public GenRespDTO save(registerRequest req){
-        if (req.getUserId() == null) {
+    public GenRespDTO save(defaultRequest req){
+        if (req.getId() == null) {
             return create(req);
         } else {
             return update(req);
         }
     }
 
-    private GenRespDTO create(registerRequest req) {
+    private GenRespDTO create(defaultRequest req) {
         return null;
     }
 
@@ -60,11 +59,11 @@ public class  userService extends GlobalFunction {
         return null;
     }
 
-    private GenRespDTO update(registerRequest req) {
+    private GenRespDTO update(defaultRequest req) {
         return null;
     }
 
-    public GenRespDTO delete(registerRequest req){
+    public GenRespDTO delete(defaultRequest req){
         return null;
     }
 }

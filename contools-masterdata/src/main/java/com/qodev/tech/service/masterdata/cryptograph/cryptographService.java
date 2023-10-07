@@ -1,30 +1,28 @@
-package com.qodev.tech.service.masterdata.user;
+package com.qodev.tech.service.masterdata.cryptograph;
 
 import com.qodev.tech.common.GenRespDTO;
-import com.qodev.tech.common.helpers.GlobalFunction;
+import com.qodev.tech.dto.request.defaultRequest;
 import com.qodev.tech.dto.request.searchRequest;
-import com.qodev.tech.dto.request.user.registerRequest;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
-public class  userService extends GlobalFunction {
-
-    public GenRespDTO save(registerRequest req){
-        if (req.getUserId() == null) {
+public class cryptographService {
+    public GenRespDTO save(defaultRequest req) {
+        if (req.getId() == null) {
             return create(req);
         } else {
             return update(req);
         }
     }
 
-    private GenRespDTO create(registerRequest req) {
+    private GenRespDTO create(defaultRequest req) {
         return null;
     }
 
-    public GenRespDTO read(searchRequest req){
+    public GenRespDTO read(searchRequest req) {
         GenRespDTO response = new GenRespDTO();
         if (req == null || (req.getId() == null && req.getCategory() == null && req.getSearch() == null && req.getSize() == null && req.getPage() == null)) {
             return response.noDataFoundResponse("Please page and size cannot be empty");
@@ -38,33 +36,33 @@ public class  userService extends GlobalFunction {
                 return getAll(req);
             }
             return getByKategory(req);
-        }else if (req.getSearch() != null) {
+        } else if (req.getSearch() != null) {
             return getBySearch(req);
         }
         return response.noDataFoundResponse("Data not found in search");
     }
 
-    private GenRespDTO getAll(searchRequest req){
+    private GenRespDTO getAll(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getById(searchRequest req){
+    private GenRespDTO getById(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getByKategory(searchRequest req){
+    private GenRespDTO getByKategory(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO getBySearch(searchRequest req){
+    private GenRespDTO getBySearch(searchRequest req) {
         return null;
     }
 
-    private GenRespDTO update(registerRequest req) {
+    private GenRespDTO update(defaultRequest req) {
         return null;
     }
 
-    public GenRespDTO delete(registerRequest req){
+    public GenRespDTO delete(defaultRequest req) {
         return null;
     }
 }
