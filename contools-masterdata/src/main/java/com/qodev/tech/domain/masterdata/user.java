@@ -2,8 +2,7 @@ package com.qodev.tech.domain.masterdata;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
-import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

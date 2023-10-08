@@ -9,8 +9,8 @@ import com.qodev.tech.dto.response.searchResponse;
 import io.quarkus.panache.common.Sort;
 import io.vertx.core.json.JsonObject;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 import java.util.*;
 
 @ApplicationScoped

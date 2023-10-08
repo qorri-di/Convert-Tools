@@ -6,7 +6,7 @@ public enum ResponseStatus {
     S("Success"),
     F("Failed");
 
-    private String name;
+    private final String name;
 
     ResponseStatus(String name) {
         this.name = name;

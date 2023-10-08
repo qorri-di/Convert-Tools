@@ -4,9 +4,9 @@ import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.*;
 import com.qodev.tech.service.masterdata.role.roleService;
 
-import javax.inject.Inject;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.inject.Inject;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

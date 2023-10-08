@@ -2,8 +2,8 @@ package com.qodev.tech.common.helpers;
 
 import com.qodev.tech.domain.transaction.activityLog;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
