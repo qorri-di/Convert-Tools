@@ -12,7 +12,7 @@ public class GenericResponseDTO<T> implements Serializable {
 
     @JsonIgnore
     public GenericResponseDTO<T> successResponse() {
-        GenericResponseDTO<T> data = new GenericResponseDTO();
+        GenericResponseDTO<T> data = new GenericResponseDTO<>();
         data.setStatus(ResponseStatus.S);
         data.setCode(201);
         data.setMessage("Process Successed");
@@ -21,7 +21,7 @@ public class GenericResponseDTO<T> implements Serializable {
 
     @JsonIgnore
     public GenericResponseDTO<T> successResponse(T t) {
-        GenericResponseDTO<T> data = new GenericResponseDTO();
+        GenericResponseDTO<T> data = new GenericResponseDTO<>();
         data.setStatus(ResponseStatus.S);
         data.setCode(201);
         data.setData(t);
@@ -31,7 +31,7 @@ public class GenericResponseDTO<T> implements Serializable {
 
     @JsonIgnore
     public GenericResponseDTO<T> noDataFoundResponse(T t) {
-        GenericResponseDTO<T> data = new GenericResponseDTO();
+        GenericResponseDTO<T> data = new GenericResponseDTO<>();
         data.setStatus(ResponseStatus.S);
         data.setCode(204);
         data.setData(t);
@@ -41,7 +41,7 @@ public class GenericResponseDTO<T> implements Serializable {
 
     @JsonIgnore
     public GenericResponseDTO<T> noDataFoundResponse() {
-        GenericResponseDTO<T> data = new GenericResponseDTO();
+        GenericResponseDTO<T> data = new GenericResponseDTO<>();
         data.setStatus(ResponseStatus.S);
         data.setCode(204);
         data.setMessage("No Data Found");
@@ -50,7 +50,7 @@ public class GenericResponseDTO<T> implements Serializable {
 
     @JsonIgnore
     public GenericResponseDTO<T> errorResponse(int code, String message) {
-        GenericResponseDTO<T> data = new GenericResponseDTO();
+        GenericResponseDTO<T> data = new GenericResponseDTO<>();
         data.setStatus(ResponseStatus.F);
         data.setCode(code);
         data.setMessage(message);
