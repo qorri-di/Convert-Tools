@@ -1,4 +1,4 @@
-package com.qodev.tech.domain;
+package com.qodev.tech.domain.masterdata;
 
 import jakarta.persistence.*;
 
@@ -6,7 +6,7 @@ import java.util.Date;
 
 @Entity
 @Table(name = "mst_cryptography")
-public class MstCryptography {
+public class cryptography {
     @Id
     @Column(name = "crypto_id")
     private String cryptoId;

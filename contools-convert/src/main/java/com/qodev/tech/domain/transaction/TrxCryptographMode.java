@@ -1,6 +1,7 @@
-package com.qodev.tech.domain;
+package com.qodev.tech.domain.transaction;
 
 import jakarta.persistence.*;
+
 import java.util.Date;
 
 @Entity

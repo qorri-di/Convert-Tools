@@ -97,6 +97,12 @@
           <groupId>io.quarkus</groupId>
           <artifactId>quarkus-rest-client-jsonb</artifactId>
         </dependency>
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>1.18.26</version>
+      <scope>compile</scope>
+    </dependency>
     <!--kafka-->
     <!--    <dependency>-->
     <!--      <groupId>io.quarkus</groupId>-->
