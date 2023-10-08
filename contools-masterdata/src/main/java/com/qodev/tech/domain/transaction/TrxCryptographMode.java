@@ -1,6 +1,6 @@
 package com.qodev.tech.domain.transaction;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity

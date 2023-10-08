@@ -4,8 +4,8 @@ import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.defaultRequest;
 import com.qodev.tech.dto.request.searchRequest;
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)

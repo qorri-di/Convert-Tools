@@ -3,8 +3,8 @@ package com.qodev.tech.service.masterdata.visibility;
 import com.qodev.tech.common.GenRespDTO;
 import com.qodev.tech.dto.request.*;
 
-import javax.enterprise.context.ApplicationScoped;
-import javax.transaction.Transactional;
+import jakarta.enterprise.context.ApplicationScoped;
+import jakarta.transaction.Transactional;
 
 @ApplicationScoped
 @Transactional
